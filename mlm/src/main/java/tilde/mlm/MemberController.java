@@ -1,5 +1,7 @@
 package tilde.mlm;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,9 +37,9 @@ public class MemberController {
     private MemberRepository memberRepository; // We have to take the reference of the repository.
 
     @GetMapping(path = "/members")
-    public @ResponseBody Iterable<Member> getAllUser() {
-        // This returns a JSON or XML with the users.
-        return memberRepository.findAll();
+    public String getAllMember(Map<String, Object> model) {
+        model.put("members", memberRepository.findAll());
+        return "member/member";
     }
 
     @GetMapping(path = "/member/create")
