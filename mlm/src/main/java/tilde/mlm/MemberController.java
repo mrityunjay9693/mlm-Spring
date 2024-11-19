@@ -42,7 +42,7 @@ public class MemberController {
         return "member/member";
     }
 
-    @GetMapping(path = "/member/create")
+    @GetMapping(path = "/members/create")
     public String getMemberCreate() {   // for a while ignore parameter : @RequestParam String param
         return "member/create";
     }
